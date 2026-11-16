@@ -1,0 +1,73 @@
+/* Gaya khusus halaman Peringatan (peringatan.html) */
+.alerts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.alert {
+  background: var(--surface);
+  border: 1px solid var(--soft-line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+.alert-PENUH {
+  border-left: 5px solid var(--penuh);
+}
+.alert-OVERWEIGHT {
+  border-left: 5px solid var(--over);
+}
+
+.alert-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.alert-icon {
+  width: 42px;
+  height: 42px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.alert-PENUH .alert-icon {
+  background: var(--penuh-bg);
+  color: var(--penuh);
+  border-radius: 50%;
+}
+.alert-OVERWEIGHT .alert-icon {
+  background: var(--over-bg);
+  color: var(--over);
+  border-radius: 12px;
+}
+
+.alert h2 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.alert-PENUH h2 { color: var(--penuh); }
+.alert-OVERWEIGHT h2 { color: var(--over); }
+
+.alert p { margin: 8px 0 0; }
+.alert-bin { font-weight: 700; font-size: 0.98rem; }
+.alert-nilai {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 8px;
+  background: #f8fafc;
+  border: 1px solid var(--soft-line);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+.alert-waktu {
+  color: var(--muted);
+  font-size: 0.82rem;
+}

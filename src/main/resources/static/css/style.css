@@ -1,0 +1,243 @@
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+
+:root {
+  --bg: #f5f7f6;
+  --surface: #ffffff;
+  --ink: #112420;
+  --muted: #5c6f6a;
+  --line: #dce4e1;
+  --soft-line: #e9efec;
+  --accent: #0d6e5b;
+  --accent-bg: #e2f5ef;
+  --normal: #0d6e5b;
+  --normal-bg: #e2f5ef;
+  --penuh: #c82333;
+  --penuh-bg: #fde8ea;
+  --over: #b45309;
+  --over-bg: #fef3c7;
+  --po: #881337;
+  --po-bg: #fce7f3;
+  --off: #475569;
+  --off-bg: #f1f5f9;
+  --radius: 14px;
+  --shadow: 0 1px 3px rgba(17, 36, 32, 0.06);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.45;
+  padding-bottom: 76px;
+}
+
+main {
+  padding: 20px 16px;
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin: 4px 0 18px;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+a { color: var(--accent); text-decoration: none; }
+button, select, input { font: inherit; min-height: 44px; color: inherit; }
+a:focus-visible, button:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Brand Header (Logo UNPAR + teks seperti referensi sidebar) */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex: none;
+}
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.brand-text strong {
+  font-size: 0.96rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.brand-text span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.03em;
+}
+
+/* Topbar HP + Navigasi */
+.mobile-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--soft-line);
+  padding: 10px 16px;
+}
+
+.nav {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  z-index: 1000;
+  display: flex;
+  gap: 4px;
+  padding: 6px 8px;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+.nav > .brand { display: none; }
+.nav a {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  min-height: 54px;
+  border-radius: 12px;
+  color: var(--ink);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.nav a svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  stroke-width: 1.85;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  flex: none;
+}
+.nav a:hover { background: #f0f4f2; }
+.nav a[aria-current="page"] {
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-count {
+  background: var(--penuh);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 24px;
+  height: 20px;
+  padding: 0 7px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 4px;
+  right: 14%;
+}
+
+@media (min-width: 900px) {
+  body { padding: 0 0 0 270px; }
+  .mobile-bar { display: none; }
+  .nav {
+    top: 0; right: auto;
+    width: 270px;
+    flex-direction: column;
+    gap: 6px;
+    padding: 28px 18px;
+    border-top: 0;
+    border-right: 1px solid var(--line);
+  }
+  .nav > .brand {
+    display: flex;
+    padding: 0 6px 28px;
+  }
+  .nav a {
+    flex: none;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 14px;
+    padding: 0 16px;
+    min-height: 50px;
+    font-size: 0.98rem;
+    border-radius: 14px;
+  }
+  .nav-count {
+    position: static;
+    margin-left: auto;
+  }
+  main { padding: 28px 36px; }
+}
+
+/* Banner peringatan & galat */
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 12px;
+  background: var(--penuh);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+.banner a {
+  color: #fff;
+  text-decoration: underline;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 6px;
+}
+
+.error {
+  background: #fffbeb;
+  color: #92400e;
+  border: 1px solid #f59e0b;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+
+.kosong {
+  background: var(--surface);
+  border: 1px solid var(--soft-line);
+  padding: 24px 18px;
+  border-radius: var(--radius);
+  color: var(--muted);
+}
+
+/* Badge status */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.badge.s-NORMAL { background: var(--normal-bg); color: var(--normal); }
+.badge.s-PENUH { background: var(--penuh-bg); color: var(--penuh); }
+.badge.s-OVERWEIGHT { background: var(--over-bg); color: var(--over); }
+.badge.s-PENUH_OVERWEIGHT { background: var(--po-bg); color: var(--po); }
+.badge.s-OFFLINE { background: var(--off-bg); color: var(--off); border: 1.5px dashed #64748b; }

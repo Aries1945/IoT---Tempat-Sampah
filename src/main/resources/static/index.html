@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard · Tempat Sampah UNPAR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <main>
+    <h1>Dashboard</h1>
+    <section class="summary" aria-label="Ringkasan">
+      <div class="stat"><span class="stat-num" id="n-total">0</span><span>Total bin</span></div>
+      <div class="stat s-PENUH"><span class="stat-num" id="n-PENUH">0</span><span>▲ Penuh</span></div>
+      <div class="stat s-OVERWEIGHT"><span class="stat-num" id="n-OVERWEIGHT">0</span><span>⚖ Overweight</span></div>
+      <div class="stat s-OFFLINE"><span class="stat-num" id="n-OFFLINE">0</span><span>✕ Offline</span></div>
+      <div class="stat s-NORMAL"><span class="stat-num" id="n-NORMAL">0</span><span>✓ Normal</span></div>
+    </section>
+    <p id="kosong" class="kosong" hidden>Belum ada data tempat sampah.</p>
+    <section id="cards" class="cards" aria-label="Daftar tempat sampah"></section>
+  </main>
+
+  <template id="card-tpl">
+    <article class="card">
+      <div class="card-head">
+        <div>
+          <h2 class="nama"></h2>
+          <p class="lokasi"></p>
+        </div>
+        <span class="badge"></span>
+      </div>
+      <p class="offline-msg"><span aria-hidden="true">✕</span> Sensor tidak merespons</p>
+      <div class="metrics">
+        <div class="bin-tank" aria-hidden="true">
+          <div class="bin-lid"></div>
+          <div class="bin-body">
+            <div class="tank-fill"></div>
+            <span class="tank-pct"></span>
+          </div>
+        </div>
+        <div class="metric-bars">
+          <div class="metric">
+            <div class="metric-row"><span>Volume</span><strong class="vol-text"></strong></div>
+            <div class="bar" role="progressbar" aria-label="Volume" aria-valuemin="0" aria-valuemax="100"><div class="bar-fill vol-fill"></div></div>
+          </div>
+          <div class="metric">
+            <div class="metric-row"><span>Berat</span><strong class="berat-text"></strong></div>
+            <div class="bar" role="progressbar" aria-label="Berat" aria-valuemin="0" aria-valuemax="100"><div class="bar-fill berat-fill"></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="updated"></p>
+    </article>
+  </template>
+
+  <script src="js/mock.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

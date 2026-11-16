@@ -1,0 +1,191 @@
+/* Gaya khusus halaman Dashboard (index.html) */
+.summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid var(--soft-line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.stat-num {
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: var(--ink);
+}
+.stat span:last-child {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+.stat.s-PENUH .stat-num { color: var(--penuh); }
+.stat.s-OVERWEIGHT .stat-num { color: var(--over); }
+.stat.s-OFFLINE .stat-num { color: var(--off); }
+.stat.s-NORMAL .stat-num { color: var(--normal); }
+
+/* Kartu tempat sampah */
+.cards {
+  display: grid;
+  gap: 14px;
+}
+@media (min-width: 640px) {
+  .cards { grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--soft-line);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.card.s-PENUH, .card.s-PENUH_OVERWEIGHT { border-color: #f5c2c7; }
+.card.s-OVERWEIGHT { border-color: #fde68a; }
+.card.s-OFFLINE { border-style: dashed; border-color: #94a3b8; }
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+.card h2 { margin: 0; font-size: 1.04rem; }
+.lokasi {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+/* Visualisasi tempat sampah terisi + bar sensor */
+.metrics {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--soft-line);
+}
+
+.bin-tank {
+  width: 64px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.bin-lid {
+  width: 58px;
+  height: 7px;
+  background: #64748b;
+  border-radius: 4px 4px 2px 2px;
+  position: relative;
+  margin-bottom: 3px;
+}
+.bin-lid::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 4px;
+  border-radius: 3px 3px 0 0;
+  background: #64748b;
+}
+.bin-body {
+  width: 52px;
+  height: 68px;
+  border: 2.5px solid #64748b;
+  border-top-width: 2px;
+  border-radius: 3px 3px 10px 10px;
+  background: #f1f5f9;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tank-fill {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  background: #a7f3d0;
+  transition: height 0.3s ease;
+}
+.s-PENUH .tank-fill, .s-PENUH_OVERWEIGHT .tank-fill { background: #fca5a5; }
+.s-OVERWEIGHT .tank-fill { background: #fde68a; }
+
+.tank-pct {
+  position: relative;
+  z-index: 1;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.78);
+  padding: 1px 5px;
+  border-radius: 6px;
+}
+
+.metric-bars {
+  flex: 1;
+  display: grid;
+  gap: 12px;
+}
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.84rem;
+  color: var(--muted);
+  margin-bottom: 5px;
+}
+.vol-text, .berat-text {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.s-PENUH .vol-text, .s-PENUH_OVERWEIGHT .vol-text { color: var(--penuh); }
+.s-OVERWEIGHT .berat-text, .s-PENUH_OVERWEIGHT .berat-text { color: var(--over); }
+
+.bar {
+  height: 9px;
+  background: #e9efec;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: var(--normal);
+  transition: width 0.3s ease;
+}
+.s-PENUH .vol-fill, .s-PENUH_OVERWEIGHT .vol-fill { background: var(--penuh); }
+.s-OVERWEIGHT .berat-fill, .s-PENUH_OVERWEIGHT .berat-fill { background: var(--over); }
+
+.offline-msg {
+  margin: 14px 0 2px;
+  padding: 12px;
+  background: var(--off-bg);
+  border: 1.5px dashed #94a3b8;
+  border-radius: 10px;
+  color: var(--off);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.updated {
+  margin: 12px 0 0;
+  font-size: 0.78rem;
+  color: var(--muted);
+}

@@ -1,0 +1,107 @@
+/* Gaya khusus halaman Lokasi (lokasi.html) */
+.map {
+  height: 55vh;
+  min-height: 320px;
+  border-radius: var(--radius);
+  border: 1px solid var(--soft-line);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.legend {
+  list-style: none;
+  padding: 14px 18px;
+  margin: 14px 0 24px;
+  background: var(--surface);
+  border: 1px solid var(--soft-line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+.legend li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Marker bentuk berbeda (L.divIcon + CSS) */
+.pin {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+.pin > span {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid #fff;
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.35);
+}
+.pin-NORMAL > span { background: var(--normal); border-radius: 50%; }
+.pin-PENUH > span { background: var(--penuh); border-radius: 5px; }
+.pin-OVERWEIGHT > span {
+  background: var(--over);
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  transform: rotate(45deg);
+}
+.pin-PENUH_OVERWEIGHT > span {
+  background: var(--po);
+  width: 26px;
+  height: 26px;
+  border: 0;
+  box-shadow: none;
+  clip-path: polygon(30% 0, 70% 0, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0 70%, 0 30%);
+}
+.pin-OFFLINE > span {
+  background: #fff;
+  border: 3px dashed var(--off);
+  border-radius: 50%;
+  box-shadow: none;
+}
+
+.leaflet-popup-content p {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.bin-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+@media (min-width: 640px) {
+  .bin-list { grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); }
+}
+
+.bin-item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--soft-line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.bin-item:hover {
+  transform: translateY(-1px);
+  border-color: #bae6fd;
+}

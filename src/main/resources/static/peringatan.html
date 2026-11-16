@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Peringatan · Tempat Sampah UNPAR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/peringatan.css">
+</head>
+<body>
+  <main>
+    <h1>Peringatan Aktif</h1>
+    <p id="kosong" class="kosong" hidden><span aria-hidden="true">✓</span> Tidak ada peringatan aktif</p>
+    <ul id="alerts" class="alerts"></ul>
+  </main>
+
+  <template id="alert-tpl">
+    <li class="alert">
+      <div class="alert-head"><span class="alert-icon" aria-hidden="true"></span><h2 class="alert-judul"></h2></div>
+      <p class="alert-bin"></p>
+      <p class="alert-nilai"></p>
+      <p class="alert-waktu"></p>
+    </li>
+  </template>
+
+  <script src="js/mock.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/peringatan.js"></script>
+</body>
+</html>

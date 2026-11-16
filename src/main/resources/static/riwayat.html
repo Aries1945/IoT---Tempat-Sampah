@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Riwayat · Tempat Sampah UNPAR</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/riwayat.css">
+</head>
+<body>
+  <main>
+    <h1>Riwayat</h1>
+    <div class="tabs" role="tablist">
+      <button type="button" role="tab" id="tab-baca" aria-selected="true" aria-controls="panel-baca">Pembacaan</button>
+      <button type="button" role="tab" id="tab-alert" aria-selected="false" aria-controls="panel-alert">Peringatan</button>
+    </div>
+
+    <section id="panel-baca" role="tabpanel" aria-labelledby="tab-baca">
+      <form class="filters" id="filter">
+        <label>Tempat sampah <select id="f-bin"><option value="">Semua</option></select></label>
+        <label>Dari tanggal <input type="date" id="f-dari"></label>
+        <label>Sampai tanggal <input type="date" id="f-sampai"></label>
+      </form>
+      <table class="tabel">
+        <thead><tr><th>Waktu</th><th>Tempat sampah</th><th>Jarak (cm)</th><th>Berat (kg)</th><th>Volume (%)</th></tr></thead>
+        <tbody id="body-baca"></tbody>
+      </table>
+      <p id="kosong-baca" class="kosong" hidden>Tidak ada data pembacaan.</p>
+      <div id="pager-baca" class="pager"></div>
+    </section>
+
+    <section id="panel-alert" role="tabpanel" aria-labelledby="tab-alert" hidden>
+      <table class="tabel">
+        <thead><tr><th>Waktu</th><th>Tempat sampah</th><th>Jenis</th><th>Nilai vs batas</th><th>Status</th></tr></thead>
+        <tbody id="body-alert"></tbody>
+      </table>
+      <p id="kosong-alert" class="kosong" hidden>Belum ada riwayat peringatan.</p>
+      <div id="pager-alert" class="pager"></div>
+    </section>
+  </main>
+
+  <script src="js/mock.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/riwayat.js"></script>
+</body>
+</html>
